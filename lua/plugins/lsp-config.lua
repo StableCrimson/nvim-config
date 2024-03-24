@@ -5,7 +5,7 @@ return {
     "williamboman/mason.nvim",
     config = function()
       require("mason").setup()
-    end
+    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -26,18 +26,18 @@ return {
           "spectral",
           "pylsp",
           "rust_analyzer",
-          "yamlls"
-        }
+          "yamlls",
+        },
       })
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
     config = function()
       local lspconfig = require("lspconfig")
-      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
-      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
-      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
       lspconfig.bashls.setup({})
       lspconfig.clangd.setup({})
       lspconfig.cssls.setup({})
@@ -53,6 +53,6 @@ return {
       lspconfig.pylsp.setup({})
       lspconfig.rust_analyzer.setup({})
       lspconfig.yamlls.setup({})
-    end
-  }
+    end,
+  },
 }
