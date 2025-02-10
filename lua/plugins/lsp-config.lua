@@ -5,8 +5,8 @@ return {
 		"williamboman/mason.nvim",
 		config = function()
 			require("mason").setup({
-        path = "prepend"
-      })
+				path = "prepend",
+			})
 		end,
 	},
 	{
@@ -21,7 +21,7 @@ return {
 					"html",
 					"jsonls",
 					"jdtls",
-					"tsserver",
+					"ts_ls",
 					"ltex",
 					"lua_ls",
 					"marksman",
@@ -39,10 +39,10 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-			vim.keymap.set("n", "<leader>rs", vim.lsp.buf.rename, {})
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- Show signature
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {}) -- Goto definition
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {}) -- Show code actions
+			vim.keymap.set("n", "<leader>rs", vim.lsp.buf.rename, {}) -- Rename symbol
 
 			lspconfig.bashls.setup({ capabilities = capabilities })
 			lspconfig.clangd.setup({ capabilities = capabilities })
@@ -51,7 +51,7 @@ return {
 			lspconfig.html.setup({ capabilities = capabilities })
 			lspconfig.jsonls.setup({ capabilities = capabilities })
 			lspconfig.jdtls.setup({ capabilities = capabilities })
-			lspconfig.tsserver.setup({ capabilities = capabilities })
+			lspconfig.ts_ls.setup({ capabilities = capabilities })
 			lspconfig.ltex.setup({ capabilities = capabilities })
 			lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.marksman.setup({ capabilities = capabilities })
